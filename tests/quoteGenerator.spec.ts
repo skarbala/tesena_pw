@@ -37,3 +37,19 @@ test('locator showtime', async ({ page }) => {
         .locator('li')
         .locator('p.author').click()
 })
+
+
+test('for cycle showcase', async ({ page }) => {
+    await page.goto('/#/quotes')
+
+    for (let index = 0; index < 100; index++) {
+        await page.getByText('Get Quote').click()
+        await expect(page.locator('p[data-test="wisdom-points"]')).toHaveText(`wisdom points +${index + 1}`)
+
+        const elements = await page.locator('ul.quote-list').locator('li').all()
+
+        expect(elements.length).toEqual(index + 1)
+        await expect(page.locator('ul.quote-list').locator('li')).toHaveCount(index + 1)
+    }
+
+})
