@@ -1,5 +1,6 @@
 import test, { expect } from '@playwright/test'
 
+//Potterapi documentation https://documenter.getpostman.com/view/6199862/SzYewFs9#7a70fb58-1060-45ff-aa0a-5d6fd7106be3
 test.describe('Sorting hat', () => {
     test.describe('UI', () => {
 
